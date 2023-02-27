@@ -14,7 +14,7 @@
 }
 
 .filmesFavoritos {
-  width: 50%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,8 +32,9 @@
 }
 
 .filmesFavoritos a {
+  margin-right: 3px;
   font-size: 20px;
-  padding: 12px;
+  padding: 5px;
   border-radius: 10px;
   background-color: rgb(113, 0, 3);
   cursor: pointer;
@@ -42,9 +43,9 @@
 
 .buttonFavoritos button {
   font-size: 20px;
-  padding: 12px;
+  padding: 5px;
   border-radius: 10px;
   background-color: rgb(113, 0, 3);
   cursor: pointer;
-  transition: all 0.5s;
+  border: none;
 }
