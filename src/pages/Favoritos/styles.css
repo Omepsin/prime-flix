@@ -1,0 +1,50 @@
+.favoritos {
+  max-width: 800px;
+  margin: 14px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favoritos h1 {
+  background-color: rgb(113, 0, 3);
+  padding: 2%;
+  margin: 2%;
+  border-radius: 10px;
+}
+
+.filmesFavoritos {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-color: rgb(113, 0, 3);
+  border-style: groove;
+  border-radius: 10px;
+  margin-bottom: 10%;
+  padding: 2%;
+}
+
+.filmesFavoritos img {
+  margin: 5%;
+  width: 40%;
+  border-radius: 10px;
+}
+
+.filmesFavoritos a {
+  font-size: 20px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: rgb(113, 0, 3);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.buttonFavoritos button {
+  font-size: 20px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: rgb(113, 0, 3);
+  cursor: pointer;
+  transition: all 0.5s;
+}

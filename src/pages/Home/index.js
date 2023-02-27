@@ -31,6 +31,29 @@ export default function Home() {
     <div className="container">
       <div className="lista-filmes">
         {filmes.map((filme) => {
+          const minhaLista = localStorage.getItem("@primeflix");
+          const filmesSalvos = JSON.parse(minhaLista) || [];
+
+          if (filmesSalvos && filmesSalvos.length > 0) {
+            const filmeNaLista = filmesSalvos.some(
+              (item) => item.id === filme.id
+            );
+
+            if (filmeNaLista) {
+              return (
+                <article key={filme.id}>
+                  <strong>{filme.title}</strong>
+                  <span>Favoritos</span>
+                  <img
+                    src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`}
+                    alt={filme.title}
+                  />
+                  <Link to={`/filme/${filme.id}`}>Acessar</Link>
+                </article>
+              );
+            }
+          }
+
           return (
             <article key={filme.id}>
               <strong>{filme.title}</strong>

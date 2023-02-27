@@ -7,8 +7,8 @@ export default function Header() {
       <Link className="logo" to="/">
         PrimeFlix
       </Link>
-      <Link className="favoritos" to="/favoritos">
-        Meus filmes
+      <Link className="favoritosButton" to="/favoritos">
+        Favoritos
       </Link>
     </header>
   );

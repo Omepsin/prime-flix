@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import api from "../../services/api";
 
 import "./styles.css";
@@ -37,6 +38,43 @@ export default function Filme() {
     };
   }, [id, navigate]);
 
+  function addFavorites() {
+    const minhaLista = localStorage.getItem("@primeflix");
+    const filmesSalvos = JSON.parse(minhaLista) || [];
+
+    const filmeCadastrado = filmesSalvos.some(
+      (filmeSalvo) => filmeSalvo.id === details.id
+    );
+
+    if (filmeCadastrado) {
+      toast.error("Esse filme já está salvo nos favoritos", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return;
+    }
+
+    filmesSalvos.push(details);
+
+    localStorage.setItem("@primeflix", JSON.stringify(filmesSalvos));
+    toast.success("Filme salvo nos favoritos", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+
   if (loading) {
     return <h2 className="loading"> Carregando detalhes...</h2>;
   }
@@ -56,7 +94,7 @@ export default function Filme() {
       <strong>Avaliação: {details.vote_average} /10</strong>
 
       <div className="buttons">
-        <button>Salvar</button>
+        <button onClick={addFavorites}>Salvar</button>
         <a
           target="blank"
           rel="external"
