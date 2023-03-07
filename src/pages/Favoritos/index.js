@@ -17,7 +17,7 @@ export default function Favoritos() {
 
     setFilmes(filtroFilmes);
     localStorage.setItem("@primeflix", JSON.stringify(filtroFilmes));
-    toast.success("Filme salvo nos favoritos", {
+    toast.success("Filme excluido dos favoritos", {
       position: "top-center",
       autoClose: 1000,
       hideProgressBar: false,
